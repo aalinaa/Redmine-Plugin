@@ -1,0 +1,19 @@
+<h1> Project authors </h1>
+
+<ul>
+	<% @authors.each do |author| %>
+		<li> 
+			<%= author[:firstname]+ " " +author[:lastname] %> 
+			<%= link_to "x", action: "delete", id: author[:id], project_id: @project.id  %>
+			<br>
+			<%= author[:login] %> 
+		</li>
+	<% end %>
+	<% if @authors %>
+	<% end %>
+</ul>
+<%= form_tag(action: 'add') do %>
+	<%= hidden_field_tag 'project_id', @project.id %>
+	<%= select_tag "users", options_from_collection_for_select(@users, "id", "login") %>
+	<%= submit_tag('Add') %>
+<% end %>
