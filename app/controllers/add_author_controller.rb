@@ -11,9 +11,9 @@ class AddAuthorController < ApplicationController
     redirect_to action: 'index', project_id: params[:project_id]
   end
 
-  def delete
-    Author.delete(params[:id])
-    flash[:notice] = 'Author was deleted'
+  def destroy
+    Author.find(params[:id]).destroy
+    flash[:notice] = 'Author deleted'
     redirect_to action: 'index', project_id: params[:project_id]
   end
 end

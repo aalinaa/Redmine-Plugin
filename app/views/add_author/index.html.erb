@@ -4,7 +4,7 @@
 	<% @authors.each do |author| %>
 		<li> 
 			<%= author[:firstname]+ " " +author[:lastname] %> 
-			<%= link_to "x", action: "delete", id: author[:id], project_id: @project.id  %>
+			<%= link_to "x", add_author_path(id: author[:id], project_id: @project.id), :confirm => 'Are you sure?', :method => :delete %>
 			<br>
 			<%= author[:login] %> 
 		</li>

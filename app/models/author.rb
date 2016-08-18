@@ -16,6 +16,7 @@ class Author < ActiveRecord::Base
   end
 
   def if_already_added
-    errors.add(:base, 'User was already added as the author of this project') unless Author.where(user_id: user_id, project_id: project_id).empty?
+    errors.add(:base, 'Thisser was already added as the author of this project
+      ') unless Author.where(user_id: user_id, project_id: project_id).empty?
   end
 end
